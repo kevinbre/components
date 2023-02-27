@@ -7,7 +7,7 @@ export const Info: React.FC = () => {
   return (
     <>
       <div className="bg-slate-800 text-white min-h-screen items-center flex flex-col py-20">
-        <section className="max-w-4xl flex justify-center flex-col items-center gap-7">
+        <section className="max-w-full md:max-w-4xl flex justify-center flex-col items-center gap-7 p-10 md:p-0">
           <h1 className="font-bold text-2xl">Componentes</h1>
           <div className="flex flex-col items-center">
             <h2 className="font-md font-bold">¿Qué son los Componentes?</h2>

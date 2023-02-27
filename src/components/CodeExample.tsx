@@ -64,8 +64,9 @@ export const CodeExample: React.FC = () => {
   </head>
   <body>
     <nav
-      className="flex h-14 bg-slate-900 justify-around items-center hover:border-red-500 border-2 
-  border-transparent cursor-default"
+      className="flex h-14 bg-slate-900 justify-around items-center
+      hover:border-red-500 border-2 
+      border-transparent cursor-default"
     >
       <div className="flex justify-center items-center gap-2">
         <img src="./iamges/logo.png" alt="logo" width="50" />
@@ -135,7 +136,8 @@ export const CodeExample: React.FC = () => {
           >
             <span
               className="cursor-pointer rounded-full p-[2px] absolute bg-red-500 
-              text-center text-white flex justify-center items-center text-[10px] font-bold -top-1 -right-2"
+              text-center text-white flex justify-center items-center text-[10px] 
+              font-bold -top-1 -right-2"
             >
               <p className="relative w-3 h-3 flex justify-center items-center">
                 1
@@ -196,7 +198,8 @@ export const CodeExample: React.FC = () => {
             className="bg-white absolute right-2 top-10 shadow-md rounded-lg flex flex-col"
           >
             <li
-              className="flex gap-2 items-center px-4 hover:bg-pink-300 hover:rounded-t-lg py-2 cursor-pointer"
+              className="flex gap-2 items-center px-4 hover:bg-pink-300 
+              hover:rounded-t-lg py-2 cursor-pointer"
             >
               <BiUser />
               <p>Perfil</p>
@@ -222,7 +225,7 @@ export const CodeExample: React.FC = () => {
 </html>
 `;
   return (
-    <div className="flex gap-10 flex-col">
+    <div className="flex gap-10 flex-col max-w-full">
       <div className="flex flex-col">
         <div>
           <h1 className="font-bold">Navbar HTML</h1>
