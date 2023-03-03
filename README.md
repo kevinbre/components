@@ -1,4 +1,4 @@
-# components
+# 🪄 components
 
 🎉 Proyect for explain how Components works.
 
