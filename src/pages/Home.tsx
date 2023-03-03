@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
         <ProductsList categoryName="women's clothing" />
       </div>
       <div className="flex w-full justify-center">
-        <Button onClick={() => navigate("/")}>Explicación</Button>
+        <Button onClick={() => navigate("/")}>Volver a empezar</Button>
       </div>
     </div>
   );

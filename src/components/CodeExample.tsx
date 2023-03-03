@@ -5,7 +5,13 @@ import { FaRegCopy } from "react-icons/fa";
 import { BsCheckLg } from "react-icons/bs";
 import { Navbar } from "./Navbar";
 
-export const CodeExample: React.FC = () => {
+type TShow = "HTML" | "React";
+
+interface ICodeExample {
+  show?: TShow;
+}
+
+export const CodeExample: React.FC<ICodeExample> = ({ show = "" }) => {
   const [copyHtml, setCopyHtml] = useState(false);
   const [copyReact, setCopyReact] = useState(false);
 
@@ -226,62 +232,68 @@ export const CodeExample: React.FC = () => {
 `;
   return (
     <div className="flex gap-10 flex-col max-w-full">
-      <div className="flex flex-col">
-        <div>
-          <h1 className="font-bold">Navbar HTML</h1>
-          <Navbar />
+      {show !== "React" && (
+        <div className="flex flex-col">
+          <div>
+            <h1 className="font-bold">Navbar HTML</h1>
+            <Navbar />
+          </div>
+          <div className="bg-[#3a404d] flex justify-between rounded-tl-md rounded-tr-md px-4 py-2 text-sm">
+            <h2>Ejemplo Navbar HTML</h2>
+            {copyHtml ? (
+              <h2 className="flex justify-center items-center gap-1 cursor-pointer">
+                <BsCheckLg /> Copied
+              </h2>
+            ) : (
+              <h2
+                className="flex justify-center items-center gap-1 cursor-pointer"
+                onClick={copyHtmlToClipboard}
+              >
+                <FaRegCopy /> Copy
+              </h2>
+            )}
+          </div>
+
+          <SyntaxHighlighter
+            language="typescript"
+            style={atomOneDarkReasonable}
+            className="rounded-md  max-h-96 overflow-auto"
+          >
+            {htmlCode}
+          </SyntaxHighlighter>
         </div>
-        <div className="bg-[#3a404d] flex justify-between rounded-tl-md rounded-tr-md px-4 py-2 text-sm">
-          <h2>Ejemplo Navbar HTML</h2>
-          {copyHtml ? (
-            <h2 className="flex justify-center items-center gap-1 cursor-pointer">
-              <BsCheckLg /> Copied
-            </h2>
-          ) : (
-            <h2
-              className="flex justify-center items-center gap-1 cursor-pointer"
-              onClick={copyHtmlToClipboard}
-            >
-              <FaRegCopy /> Copy
-            </h2>
-          )}
+      )}
+      {show !== "HTML" && (
+        <div className="flex flex-col">
+          <div>
+            <h1 className="font-bold">Navbar React</h1>
+            <Navbar />
+          </div>
+          <div className="bg-[#3a404d] flex justify-between rounded-tl-md rounded-tr-md px-4 py-2 text-sm">
+            <h2>Ejemplo Navbar React</h2>
+            {copyReact ? (
+              <span className="flex justify-center items-center gap-1 cursor-pointer">
+                <BsCheckLg /> Copied
+              </span>
+            ) : (
+              <span
+                className="flex justify-center items-center gap-1 cursor-pointer"
+                onClick={copyReactToClipboard}
+              >
+                <FaRegCopy /> Copy
+              </span>
+            )}
+          </div>
+
+          <SyntaxHighlighter
+            language="typescript"
+            style={atomOneDarkReasonable}
+            className="rounded-md max-h-96 overflow-auto w-full"
+          >
+            {reactCode}
+          </SyntaxHighlighter>
         </div>
-        <SyntaxHighlighter
-          language="typescript"
-          style={atomOneDarkReasonable}
-          className="rounded-md  max-h-96 overflow-auto"
-        >
-          {htmlCode}
-        </SyntaxHighlighter>
-      </div>
-      <div className="flex flex-col">
-        <div>
-          <h1 className="font-bold">Navbar React</h1>
-          <Navbar />
-        </div>
-        <div className="bg-[#3a404d] flex justify-between rounded-tl-md rounded-tr-md px-4 py-2 text-sm">
-          <h2>Ejemplo Navbar React</h2>
-          {copyReact ? (
-            <span className="flex justify-center items-center gap-1 cursor-pointer">
-              <BsCheckLg /> Copied
-            </span>
-          ) : (
-            <span
-              className="flex justify-center items-center gap-1 cursor-pointer"
-              onClick={copyReactToClipboard}
-            >
-              <FaRegCopy /> Copy
-            </span>
-          )}
-        </div>
-        <SyntaxHighlighter
-          language="typescript"
-          style={atomOneDarkReasonable}
-          className="rounded-md max-h-96 overflow-auto w-full"
-        >
-          {reactCode}
-        </SyntaxHighlighter>
-      </div>
+      )}
     </div>
   );
 };
