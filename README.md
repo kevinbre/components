@@ -4,7 +4,16 @@
 
 
 Setps to run local
+<ol>
+<li>
+Clone repo
+</li>
+<li>
+Open terminal and run npm i 
+</li>
+<li>
+Run proyect with npm run dev
+</li>
+</ol>
 
-1- Clone repo
-2- Open terminal and run npm i 
-3- Run proyect with npm run dev
+
